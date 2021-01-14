@@ -132,7 +132,17 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.width/3)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.width/2)
+
+//        var size: CGSize = CGSize(width: 0, height: 0)
+//        if (listEntity.description != nil) {
+//            size = CGSize(width: collectionView.frame.width, height: 185)
+//        }
+//        else {
+//            size = CGSize(width: collectionView.frame.width, height: 120)
+//        }
+//        return size
+//        идея такая, если есть description ячейки одного размера, нет - другого. Мб конечно можно более изящно это сделать, но уже нет времени 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
