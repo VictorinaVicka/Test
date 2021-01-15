@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     private let label: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "Helvetica-Bold", size: 27.0)
+        label.font = UIFont(name: "Helvetica-Bold", size: 25.0)
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -132,17 +132,25 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.width/2)
-
-//        var size: CGSize = CGSize(width: 0, height: 0)
-//        if (listEntity.description != nil) {
-//            size = CGSize(width: collectionView.frame.width, height: 185)
+//        let advertisment = noticeResources.list[indexPath.item]
+        var size: CGSize = CGSize(width: 0, height: 0)
+//        if (advertisment.description != nil) {
+//            size = CGSize(width: collectionView.frame.width, height: 170)
+//        } else {
+//            size = CGSize(width: collectionView.frame.width, height: 130)
 //        }
-//        else {
-//            size = CGSize(width: collectionView.frame.width, height: 120)
-//        }
-//        return size
-//        идея такая, если есть description ячейки одного размера, нет - другого. Мб конечно можно более изящно это сделать, но уже нет времени 
+        if indexPath.row == 0 {
+            size = CGSize(width: collectionView.frame.width, height: 165)
+        }
+        if indexPath.row == 1 {
+            size = CGSize(width: collectionView.frame.width, height: 129.5)
+        }
+        if indexPath.row >= 2 {
+            size = CGSize(width: collectionView.frame.width, height: 130.5)
+        }
+       
+        return size
+//        идея такая, если есть description: ячейки одного размера, нет - другого. Мб конечно можно более изящно это сделать, но уже нет времени
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -152,14 +160,14 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         
-        let notic = noticeResources.list[indexPath.item]
-        cell.listEntity = notic
+        let notice = noticeResources.list[indexPath.item]
+        cell.listEntity = notice
         cell.backgroundColor = #colorLiteral(red: 0.9475917583, green: 0.9475917583, blue: 0.9475917583, alpha: 1)
         cell.layer.cornerRadius = 7
         
         if (indexPath.item == index) {
             cell.choiceIV.image = UIImage(named: "checkmark")
-        }else {
+        } else {
             cell.choiceIV.image = .none
         }
         
@@ -174,8 +182,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
             cell.choiceIV.image = .none
             index = nil
             button.setTitle(noticeResources.actionTitle, for: .normal)
-        }
-        else {
+        } else {
             index = indexPath.item
             button.setTitle(noticeResources.selectedActionTitle, for: .normal)
         }

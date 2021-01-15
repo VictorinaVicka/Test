@@ -27,8 +27,9 @@ class CustomCell: UICollectionViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "Helvetica-Bold", size: 23.0)
-        label.numberOfLines = 3
+        label.font = UIFont(name: "Helvetica-Bold", size: 21.0)
+//        label.font = UIFont.systemFont(ofSize: 21, weight: .bold)
+        label.numberOfLines = .max
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -43,7 +44,7 @@ class CustomCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont(name: "Helvetica", size: 17.0)
-        label.numberOfLines = 0
+        label.numberOfLines = .max
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -51,7 +52,7 @@ class CustomCell: UICollectionViewCell {
     var priceLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "Helvetica-Bold", size: 19.0)
+        label.font = UIFont(name: "Helvetica-Bold", size: 18.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -99,17 +100,16 @@ class CustomCell: UICollectionViewCell {
         choiceIV.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
         choiceIV.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15).isActive = true
         choiceIV.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        choiceIV.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        
-//        choiceIV.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -15).isActive = true
-//        choiceIV.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
     }
     
     func setupDescriptionLabel() {
         descriptionLabel.leadingAnchor.constraint(equalTo: iconIV.trailingAnchor, constant: 10).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
         descriptionLabel.widthAnchor.constraint(equalTo: titleLabel.widthAnchor).isActive = true
+        
+//        descriptionLabel.leadingAnchor.constraint(equalTo: iconIV.trailingAnchor, constant: 10).isActive = true
+//        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
+//        descriptionLabel.widthAnchor.constraint(equalTo: titleLabel.widthAnchor).isActive = true
     }
     
     func setupPriceLabel() {
