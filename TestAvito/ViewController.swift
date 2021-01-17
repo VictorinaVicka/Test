@@ -127,31 +127,22 @@ class ViewController: UIViewController {
         }
     }
     
+    func getSuggestion() -> [ListEntity]? { return nil }
+    
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let advertisment = noticeResources.list[indexPath.item]
-        var size: CGSize = CGSize(width: 0, height: 0)
-//        if (advertisment.description != nil) {
-//            size = CGSize(width: collectionView.frame.width, height: 170)
-//        } else {
-//            size = CGSize(width: collectionView.frame.width, height: 130)
-//        }
-        if indexPath.row == 0 {
-            size = CGSize(width: collectionView.frame.width, height: 165)
-        }
-        if indexPath.row == 1 {
-            size = CGSize(width: collectionView.frame.width, height: 129.5)
-        }
-        if indexPath.row >= 2 {
-            size = CGSize(width: collectionView.frame.width, height: 130.5)
-        }
-       
-        return size
-//        идея такая, если есть description: ячейки одного размера, нет - другого. Мб конечно можно более изящно это сделать, но уже нет времени
+
+        let advertisment = noticeResources.list[indexPath.item]
+        let approximateWidthOfAdTextView = view.frame.width - 10 - 60 - 62 - 40
+        let size = CGSize(width: approximateWidthOfAdTextView, height: 1000)
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)]
+        let estimatedFrame = NSString(string: advertisment.description ?? "").boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+        return CGSize(width: view.frame.width - 40, height: estimatedFrame.height + 85)
     }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return noticeResources.list.count

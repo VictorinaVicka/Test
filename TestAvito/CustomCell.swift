@@ -27,9 +27,9 @@ class CustomCell: UICollectionViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "Helvetica-Bold", size: 21.0)
+        label.font = UIFont(name: "Helvetica-Bold", size: 19.0)
 //        label.font = UIFont.systemFont(ofSize: 21, weight: .bold)
-        label.numberOfLines = .max
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -52,7 +52,7 @@ class CustomCell: UICollectionViewCell {
     var priceLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "Helvetica-Bold", size: 18.0)
+        label.font = UIFont(name: "Helvetica-Bold", size: 17.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
