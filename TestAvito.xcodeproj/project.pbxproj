@@ -72,28 +72,28 @@
 		BE03D4DD25A5CC6A008B3D97 /* TestAvito */ = {
 			isa = PBXGroup;
 			children = (
-				BE03D52225A60421008B3D97 /* Resources */,
-				BE03D51725A603D5008B3D97 /* Entities */,
+				BE03D52225A60421008B3D97 /* Entities */,
+				BE03D51725A603D5008B3D97 /* Resources */,
 				BEDEB5B525B45EF7000D12EC /* Main */,
 				BEDEB5B425B45E96000D12EC /* Application */,
-				BE03D4E725A5CC6C008B3D97 /* Assets.xcassets */,
 				BE03D4EC25A5CC6C008B3D97 /* Info.plist */,
 			);
 			path = TestAvito;
 			sourceTree = "<group>";
 		};
-		BE03D51725A603D5008B3D97 /* Entities */ = {
+		BE03D51725A603D5008B3D97 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				BE03D53925A60545008B3D97 /* Parser.swift */,
 				BE03D52E25A604CE008B3D97 /* result.json */,
 				BE8AC48D25AB065C00AC9CC0 /* NoticeResources.swift */,
+				BE03D4E725A5CC6C008B3D97 /* Assets.xcassets */,
 				BE8AC49025AB1EE100AC9CC0 /* ImageView.swift */,
 			);
-			path = Entities;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		BE03D52225A60421008B3D97 /* Resources */ = {
+		BE03D52225A60421008B3D97 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				BE03D52B25A6048A008B3D97 /* IconEntity.swift */,
@@ -101,7 +101,7 @@
 				BE03D53225A604E8008B3D97 /* MenuEntity.swift */,
 				BE03D53325A604E8008B3D97 /* ResultEntity.swift */,
 			);
-			path = Resources;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		BEDEB5B425B45E96000D12EC /* Application */ = {
