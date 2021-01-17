@@ -16,8 +16,8 @@ extension UIImageView {
             }
             let session = URLSession.shared
             
-            session.dataTask(with: url) { (data, response, err) in
-                if let _ = err {
+            session.dataTask(with: url) { (data, response, error) in
+                if let _ = error {
                     print("No image")
                 }
                 if let data = data {

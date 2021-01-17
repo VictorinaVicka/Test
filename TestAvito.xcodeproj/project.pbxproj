@@ -74,15 +74,9 @@
 			children = (
 				BE03D52225A60421008B3D97 /* Resources */,
 				BE03D51725A603D5008B3D97 /* Entities */,
-				BE03D4E025A5CC6A008B3D97 /* SceneDelegate.swift */,
-				BE8AC48D25AB065C00AC9CC0 /* NoticeResources.swift */,
-				BE03D53925A60545008B3D97 /* Parser.swift */,
-				BE03D4DE25A5CC6A008B3D97 /* AppDelegate.swift */,
-				BE8AC49025AB1EE100AC9CC0 /* ImageView.swift */,
-				BE16C81D25A74717001A8072 /* CustomCell.swift */,
-				BE03D4E225A5CC6A008B3D97 /* ViewController.swift */,
+				BEDEB5B525B45EF7000D12EC /* Main */,
+				BEDEB5B425B45E96000D12EC /* Application */,
 				BE03D4E725A5CC6C008B3D97 /* Assets.xcassets */,
-				BE03D4E925A5CC6C008B3D97 /* LaunchScreen.storyboard */,
 				BE03D4EC25A5CC6C008B3D97 /* Info.plist */,
 			);
 			path = TestAvito;
@@ -91,7 +85,10 @@
 		BE03D51725A603D5008B3D97 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				BE03D53925A60545008B3D97 /* Parser.swift */,
 				BE03D52E25A604CE008B3D97 /* result.json */,
+				BE8AC48D25AB065C00AC9CC0 /* NoticeResources.swift */,
+				BE8AC49025AB1EE100AC9CC0 /* ImageView.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -105,6 +102,25 @@
 				BE03D53325A604E8008B3D97 /* ResultEntity.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BEDEB5B425B45E96000D12EC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BE03D4DE25A5CC6A008B3D97 /* AppDelegate.swift */,
+				BE03D4E025A5CC6A008B3D97 /* SceneDelegate.swift */,
+				BE03D4E925A5CC6C008B3D97 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BEDEB5B525B45EF7000D12EC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BE16C81D25A74717001A8072 /* CustomCell.swift */,
+				BE03D4E225A5CC6A008B3D97 /* ViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

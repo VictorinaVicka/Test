@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    fileprivate let collectionView: UICollectionView = {
+    private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -70,7 +70,6 @@ class ViewController: UIViewController {
         
         tuneLabel()
         tuneButton()
-        customizeButton()
     }
     
     private func setupImage() {
@@ -99,8 +98,6 @@ class ViewController: UIViewController {
     private func setupCollectionView() {
         collectionView.backgroundColor = .white
         collectionView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20).isActive = true
-//        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-//        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -45).isActive = true
@@ -115,7 +112,8 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(customizeButton), for: .touchUpInside)
     }
 
-    @objc func customizeButton() {
+    @objc
+    func customizeButton() {
         if (index != nil)  {
             let alert = UIAlertController(title: "\(serviceAlert)", message: "\(descriptionAlert)", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel))
@@ -126,9 +124,6 @@ class ViewController: UIViewController {
             present(alert, animated: true)
         }
     }
-    
-    func getSuggestion() -> [ListEntity]? { return nil }
-    
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -136,11 +131,11 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let advertisment = noticeResources.list[indexPath.item]
-        let approximateWidthOfAdTextView = view.frame.width - 10 - 60 - 62 - 40
+        let approximateWidthOfAdTextView = view.frame.width - 162
         let size = CGSize(width: approximateWidthOfAdTextView, height: 1000)
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)]
-        let estimatedFrame = NSString(string: advertisment.description ?? "").boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-        return CGSize(width: view.frame.width - 40, height: estimatedFrame.height + 85)
+        let attribut = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)]
+        let frameHeight = NSString(string: advertisment.description ?? "").boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attribut, context: nil)
+        return CGSize(width: view.frame.width - 40, height: frameHeight.height + 84)
     }
 
     
@@ -161,7 +156,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
         } else {
             cell.choiceIV.image = .none
         }
-        
         return cell
     }
     
@@ -169,6 +163,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         
         let noticeResour = noticeResources.list[indexPath.item]
+        
         if index == indexPath.item {
             cell.choiceIV.image = .none
             index = nil
@@ -177,6 +172,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDa
             index = indexPath.item
             button.setTitle(noticeResources.selectedActionTitle, for: .normal)
         }
+        
         serviceAlert = noticeResour.title
         descriptionAlert = noticeResour.price
         collectionView.reloadData()
