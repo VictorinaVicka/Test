@@ -12,4 +12,4 @@
 + Юзается UICollectionView
 
 
-![](https://github.com/VictorinaVicka/Test/raw/master/img/test.gif)
+![](https://github.com/VictorinaVicka/Test/raw/master/img/test1.gif)
