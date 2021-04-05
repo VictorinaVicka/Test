@@ -10,3 +10,6 @@
 ### Плюсы:
 + Не используется Storyboard
 + Юзается UICollectionView
+
+
+![](https://github.com/VictorinaVicka/Test/raw/master/img/test.gif)
